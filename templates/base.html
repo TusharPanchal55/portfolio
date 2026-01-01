@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio{% endblock %}</title>
+
+    <!-- SEO / Social Preview -->
+    <meta name="description" content="Tushar Panchal - Backend & AI Developer Portfolio. Django & ML projects.">
+    <meta name="keywords" content="Backend, Django, AI, ML, Python, Projects">
+    <meta name="author" content="Tushar Panchal">
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:title" content="Tushar Panchal Portfolio">
+    <meta property="og:description" content="Backend & AI Developer | Django | Machine Learning Projects">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="{% static 'images/social-preview.png' %}">
+
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="container nav-inner">
+        <h2 class="logo">Tushar Panchal</h2>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    <p>© 2025 Tushar Panchal · Built with Django</p>
+</footer>
+
+</body>
+</html>

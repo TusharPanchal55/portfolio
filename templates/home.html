@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}Home | Portfolio{% endblock %}
+
+{% block content %}
+
+
+<section class="hero-card">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>HI, I'M TUSHAR PANCHAL</h1>
+            <p>
+                Aspiring Software Engineer specializing in Python, Django, and backend development.<br>
+                I build scalable, AI-powered, and real-world applications while solving complex problems.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+
+            <a class="resume-btn" href="{% static 'files/Tushar_Resume.pdf' %}" download>Download Resume</a>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'main/images/profile.jpeg' %}" alt="Me">
+        </div>
+        
+    </div>
+</section>
+
+
+<section id="projects" class="projects">
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p class="project-desc">{{ project.description }}</p>
+
+            <p class="tech">
+                <strong>Tech Stack:</strong> {{ project.tech_stack }}
+            </p>
+
+            <div class="links">
+                {% if project.github_link %}
+                <a href="{{ project.github_link }}" target="_blank">GitHub ↗</a>
+                {% endif %}
+
+                {% if project.live_link %}
+                <a href="{{ project.live_link }}" target="_blank">Live ↗</a>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <p>No projects added yet.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:tpanchal827@gmail.com">tpanchal827@gmail.com</a></p>
+    <p class="socials">
+        <a href="https://github.com/TusharPanchal55?tab=repositories" target="_blank">GitHub</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/tushar-panchal-44a9b322a" target="_blank">LinkedIn</a>
+    </p>
+</section>
+
+{% endblock %}
